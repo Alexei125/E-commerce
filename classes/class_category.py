@@ -2,11 +2,14 @@ class Category:
     name: str
     description: str
     product: str
+    category_quantity = 0
 
-    def __init__(self, name, description, product):
+    def __init__(self, name, description, products):
         self.name = name
         self.description = description
         self.product = product
+        self.prodacts = self.all_prodacts(self.prodacts)
+        Category.category_quantity += 1
 
 
 class Product:
