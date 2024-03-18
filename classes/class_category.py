@@ -7,8 +7,8 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.product = product
-        self.prodacts = self.all_prodacts(self.prodacts)
+        self.products = products
+        self.all_prodacts = self.prodacts_list()
         Category.category_quantity += 1
 
 
