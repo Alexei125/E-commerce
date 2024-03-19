@@ -5,15 +5,15 @@ from classes.class_category import Product
 
 @pytest.fixture()
 def category_device():
-    return Category(dict[:])
+    return Category('Смартфон', 'Смартфоны', 'Samsung')
 
 
 def test_init(category_device):
     assert category_device.name == 'Смартфон'
-    assert category_device.description == 'Смартфон'
-    assert  category_device.products == 3
-    assert category.category_quantity == 3
-
+    assert category_device.description == 'Смартфоны'
+    assert category_device.products == 'Samsung'
+    assert category_device.products_quantity == 1
+    assert category_device.category_quantity == 1
 
 
 @pytest.fixture()
@@ -21,7 +21,7 @@ def product_device():
     return Product([], 'Samsung', 20_000, 60)
 
 
-def test_init(product_device):
+def test_product(product_device):
     assert product_device.name == []
     assert product_device.description == 'Samsung'
     assert product_device.price == 20_000
