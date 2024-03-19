@@ -1,15 +1,16 @@
 class Category:
     name: str
     description: str
-    product: str
+    product: list
     category_quantity = 0
+    products_quantity = 0
 
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
         self.products = products
-        self.all_prodacts = self.prodacts_list()
         Category.category_quantity += 1
+        Category.products_quantity += 1
 
 
 class Product:
