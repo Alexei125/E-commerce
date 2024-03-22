@@ -13,7 +13,8 @@ def test_init(category_device):
     assert category_device.description == 'Смартфоны'
     assert category_device.products == 'Samsung'
     assert category_device.products_quantity == 1
-    assert category_device.category_quantity == []
+    assert category_device.category_quantity == 1
+
 
 @pytest.fixture()
 def product_device():
@@ -25,3 +26,4 @@ def test_product(product_device):
     assert product_device.description == 'Samsung'
     assert product_device.price == 20_000
     assert product_device.quantity == 60
+
