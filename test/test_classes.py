@@ -26,3 +26,4 @@ def test_product(product_device):
     assert product_device.description == 'Samsung'
     assert product_device.price == 20_000
     assert product_device.quantity == 60
+
