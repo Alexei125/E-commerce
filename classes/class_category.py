@@ -8,15 +8,17 @@ class Category:
     def __init__(self, name, description, products):
         self.name = name
         self.description = description
-        self.products = products
+        self.__products = products
         Category.category_quantity += 1
-        Category.products_quantity += len(self.products)
+        Category.products_quantity += len(self.__products)
+
+    def add_products(self, value):
+        self.__products.append(value)
 
     @property
-    def list_products(self):
-        for product in self.roducts:
+    def list_products(self, output=''):
+        for product in self.__products:
             output += f'{product.name}, {product.price} руб. Остаток: {product.available}'
-
         return output
 
 
@@ -41,10 +43,8 @@ class Product:
         return self.__price
 
     @price.setter
-    def price(self, value):
-        for value in self.__price:
-            if value <= 0:
-                print('Цена введена некорректная')
+    def price(self, new_price):
+        self.__price = new_price
 
 
 
