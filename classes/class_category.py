@@ -16,9 +16,10 @@ class Category:
         self.__products.append(value)
 
     @property
-    def list_products(self, output=''):
+    def list_products(self):
+        output = ''
         for product in self.__products:
-            output += f'{product.name}, {product.price} руб. Остаток: {product.available}'
+            output += f'{product.name}, {product.price} руб. Остаток: {product.quantity}'
         return output
 
 
@@ -45,6 +46,7 @@ class Product:
     @price.setter
     def price(self, new_price):
         self.__price = new_price
+        print('Цена введена некорректная')
 
 
 
