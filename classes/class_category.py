@@ -19,7 +19,7 @@ class Category:
     def list_products(self):
         output = ''
         for product in self.__products:
-            output += f'{product.name}, {product.price} руб. Остаток: {product.quantity}'
+            output += f'{product.name}, {product.price} руб. Остаток: {product.quantity}\n'
         return output
 
 
@@ -45,8 +45,10 @@ class Product:
 
     @price.setter
     def price(self, new_price):
-        self.__price = new_price
-        print('Цена введена некорректная')
+        if new_price <= 0:
+            print('Цена введена некорректная')
+        else:
+            self.__price = new_price
 
 
 
