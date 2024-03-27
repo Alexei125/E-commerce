@@ -22,6 +22,12 @@ class Category:
             output += f'{product.name}, {product.price} руб. Остаток: {product.quantity}\n'
         return output
 
+    def __str__(self):
+        return f'{self.name}, количество продуктов {Category.products_quantity}'
+
+    def __len__(self):
+        return len(self.__products)
+
 
 class Product:
     name: str
@@ -50,6 +56,9 @@ class Product:
         else:
             self.__price = new_price
 
+    def __str__(self):
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
 
-
+    def __add__(self, other):
+        return self.__price * self.quantity + other.price * other.quantity
 
