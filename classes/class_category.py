@@ -23,10 +23,13 @@ class Category:
         return output
 
     def __str__(self):
-        return f'{self.name}, количество продуктов {Category.products_quantity}'
+        return f'{self.name}, количество продуктов: {len(self)}'
 
     def __len__(self):
-        return len(self.__products)
+        q_prodacts = 0
+        for i in self.__prodacts:
+            q_prodacts += quntity
+        return q_prodacts
 
 
 class Product:
