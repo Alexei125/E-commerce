@@ -15,6 +15,7 @@ def test_init(category_device):
     assert category_device.category_quantity == 1
 
 
+
 @pytest.fixture()
 def product_device():
     return Product('', 'Samsung', 20_000, 60)
