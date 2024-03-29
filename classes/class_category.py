@@ -10,7 +10,7 @@ class Category:
         self.description = description
         self.__products = products
         Category.category_quantity += 1
-        Category.products_quantity += len(self.__products)
+        Category.products_quantity += int(self.__products)
 
     def add_products(self, value):
         self.__products.append(value)
@@ -23,13 +23,10 @@ class Category:
         return output
 
     def __str__(self):
-        return f'{self.name}, количество продуктов: {len(self)}'
+        return f'{self.name}, количество продуктов: {self.__products} шт.'
 
     def __len__(self):
-        q_prodacts = 0
-        for i in self.__prodacts:
-            q_prodacts += quntity
-        return q_prodacts
+        return len(self.__products)
 
 
 class Product:
@@ -65,3 +62,5 @@ class Product:
     def __add__(self, other):
         return self.__price * self.quantity + other.price * other.quantity
 
+emp1 = Category('ngfchh', 'tretyu', 40)
+print(emp1)
