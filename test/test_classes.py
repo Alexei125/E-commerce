@@ -11,6 +11,7 @@ def category_device():
 def test_init(category_device):
     assert category_device.name == 'Смартфон'
     assert category_device.description == 'Смартфоны'
+    assert category_device.products == []
     assert category_device.products_quantity == 0
     assert category_device.category_quantity == 1
 
