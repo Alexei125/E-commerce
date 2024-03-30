@@ -13,7 +13,12 @@ class Category:
         Category.products_quantity += len(self.__products)
 
     def add_products(self,value):
-        return f'Category.products_quantity += 1'
+        self.__products.append(value)
+        return 'Category.products_quantity += 1'
+
+    @property
+    def products(self):
+        return self.__products
 
     @property
     def list_products(self):
@@ -25,11 +30,11 @@ class Category:
     def __str__(self):
         return f'{self.name}, количество продуктов: {len(self)} шт.'
 
-        def __len__(self):
-            quantity = 0
-            for product in self.__products:
-                quantity += product.quantity
-            return quantity
+    def __len__(self):
+        quantity = 0
+        for product in self.__products:
+            quantity += product.quantity
+        return quantity
 
 
 class Product:
