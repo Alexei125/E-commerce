@@ -14,7 +14,7 @@ class Category:
 
     def add_products(self,value):
         self.__products.append(value)
-        return 'Category.products_quantity += 1'
+        Category.products_quantity += 1
 
     @property
     def products(self):
