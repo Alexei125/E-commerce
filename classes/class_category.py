@@ -70,3 +70,9 @@ class Product:
     def __add__(self, other):
         return self.__price * self.quantity + other.price * other.quantity
 
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.__price * self.quantity + other.price * other.quantity
+
+        raise TypeError
+
