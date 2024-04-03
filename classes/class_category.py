@@ -12,7 +12,7 @@ class Category:
         Category.category_quantity += 1
         Category.products_quantity += len(self.__products)
 
-    def add_products(self,value):
+    def add_products(self, value):
         self.__products.append(value)
         Category.products_quantity += 1
 
@@ -67,11 +67,32 @@ class Product:
     def __str__(self):
         return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
 
-
-
-    def __add__(self, other):
-        if isinstance(other, self.__class__):
-            return self.__price * self.quantity + other.price * other.quantity
+    def __add__(self, product):
+        if isinstance(product, Product):
+            self.products.append(product)
 
         raise TypeError
+
+
+class Smartphone(Product):
+    def __init__(self, efficiency, model, memory, colour, name, description, price, quantity):
+        super().__init__(name, description, price, quantity)
+        self.efficiency = efficiency
+        self.model = model
+        self.memory = memory
+        self.colour = colour
+
+
+class Lawn_grass(Product):
+
+    def __init__(self, country, period, colour, name, description, price, quantity):
+        super().__init__(name, description, price, quantity)
+        self.country = country
+        self.period = period
+        self.colour = colour
+
+
+# pro_1 = Smartphone(2, 'Galaxi', 168, 'синий', 'Samsung', 'Смартфон', 70000, 20)
+# pro_2 = Lawn_grass('Russia', 30, 'В горошек', 'Grass', 'Трава газонная', 20000, 100 )
+# print(pro_1 + pro_2)
 
