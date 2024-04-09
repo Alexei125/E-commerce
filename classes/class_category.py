@@ -1,3 +1,4 @@
+from abc import ABC, abstractmethod
 class Category:
     name: str
     description: str
@@ -36,6 +37,30 @@ class Category:
             quantity += product.quantity
         return quantity
 
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.name}, {self.description},{self.__products})"
+
+class Abstract(ABC):
+
+    @classmethod
+    @abstractmethod
+    def creat_product(cls):
+        pass
+
+    @property
+    @abstractmethod
+    def price(self):
+        pass
+
+    @price.setter
+    @abstractmethod
+    def price(self, new_price):
+        pass
+
+class MixinRepr:
+    def __repr(self):
+        return f'{self.__class__.__name__} ({self.__dict__.items()})'
 
 class Product:
     name: str
