@@ -1,5 +1,12 @@
 from abc import ABC, abstractmethod
-class Category:
+
+
+class MixinRepr:
+    def __repr__(self):
+        print(f'{self.__class__.__name__} ({self.__dict__.items()})')
+
+
+class Category(MixinRepr):
     name: str
     description: str
     products: list
@@ -37,9 +44,9 @@ class Category:
             quantity += product.quantity
         return quantity
 
-
     def __repr__(self):
         return f"{self.__class__.__name__}({self.name}, {self.description},{self.__products})"
+
 
 class Abstract(ABC):
 
@@ -58,11 +65,13 @@ class Abstract(ABC):
     def price(self, new_price):
         pass
 
-class MixinRepr:
-    def __repr(self):
-        return f'{self.__class__.__name__} ({self.__dict__.items()})'
 
-class Product:
+# class MixinRepr:
+#     def __repr__(self):
+#         print(f'{self.__class__.__name__} ({self.__dict__.items()})')
+
+
+class Product(MixinRepr):
     name: str
     description: str
     price: float
@@ -116,8 +125,4 @@ class Lawn_grass(Product):
         self.period = period
         self.colour = colour
 
-
-# pro_1 = Smartphone(2, 'Galaxi', 168, 'синий', 'Samsung', 'Смартфон', 70000, 20)
-# pro_2 = Lawn_grass('Russia', 30, 'В горошек', 'Grass', 'Трава газонная', 20000, 100 )
-# print(pro_1 + pro_2)
-
+print(MixinRepr.__mro__)
