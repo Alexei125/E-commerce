@@ -66,11 +66,6 @@ class Abstract(ABC):
         pass
 
 
-# class MixinRepr:
-#     def __repr__(self):
-#         print(f'{self.__class__.__name__} ({self.__dict__.items()})')
-
-
 class Product(MixinRepr):
     name: str
     description: str
@@ -124,5 +119,6 @@ class Lawn_grass(Product):
         self.country = country
         self.period = period
         self.colour = colour
+
 
 print(MixinRepr.__mro__)
