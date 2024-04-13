@@ -2,8 +2,9 @@ from abc import ABC, abstractmethod
 
 
 class MixinRepr:
+
     def __repr__(self):
-        print(f'{self.__class__.__name__} ({self.__dict__.items()})')
+        return f'{self.__class__.__name__} ({self.__dict__.items()})'
 
 
 class Category(MixinRepr):
@@ -19,6 +20,7 @@ class Category(MixinRepr):
         self.__products = products
         Category.category_quantity += 1
         Category.products_quantity += len(self.__products)
+        super().__repr__()
 
     def add_products(self, value):
         self.__products.append(value)
@@ -66,11 +68,6 @@ class Abstract(ABC):
         pass
 
 
-# class MixinRepr:
-#     def __repr__(self):
-#         print(f'{self.__class__.__name__} ({self.__dict__.items()})')
-
-
 class Product(MixinRepr):
     name: str
     description: str
@@ -82,6 +79,7 @@ class Product(MixinRepr):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__repr__()
 
     @classmethod
     def creat_product(cls, name, description, price, quantity):
@@ -125,4 +123,13 @@ class Lawn_grass(Product):
         self.period = period
         self.colour = colour
 
-print(MixinRepr.__mro__)
+    def average_price_(self):
+        average_price = []
+        for goods in self.__products:
+            try:
+                if goods.quantity == 0:
+                    raise ZeroDivisionError
+                average_price.append(goods.price)
+            except ZeroDivisionError:
+                return 0
+        return sum(average_price) / len(average_price)
