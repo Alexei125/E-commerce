@@ -25,6 +25,8 @@ class Category(MixinRepr):
     def add_products(self, value):
         self.__products.append(value)
         Category.products_quantity += 1
+        if value < 1:
+            raise ValueError
 
     @property
     def products(self):
@@ -50,9 +52,7 @@ class Category(MixinRepr):
         return f"{self.__class__.__name__}({self.name}, {self.description},{self.__products})"
 
 
-    def zero_quantity(self, quantity):
-        if quantity < 1:
-            raise ValueError
+
 
 
 class Abstract(ABC):
