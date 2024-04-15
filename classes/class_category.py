@@ -50,6 +50,11 @@ class Category(MixinRepr):
         return f"{self.__class__.__name__}({self.name}, {self.description},{self.__products})"
 
 
+    def zero_quantity(self, quantity):
+        if quantity < 1:
+            raise ValueError
+
+
 class Abstract(ABC):
 
     @classmethod
